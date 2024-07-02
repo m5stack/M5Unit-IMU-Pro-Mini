@@ -1,40 +1,40 @@
 /**
-* Copyright (c) 2021 Bosch Sensortec GmbH. All rights reserved.
-*
-* BSD-3-Clause
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions are met:
-*
-* 1. Redistributions of source code must retain the above copyright
-*    notice, this list of conditions and the following disclaimer.
-*
-* 2. Redistributions in binary form must reproduce the above copyright
-*    notice, this list of conditions and the following disclaimer in the
-*    documentation and/or other materials provided with the distribution.
-*
-* 3. Neither the name of the copyright holder nor the names of its
-*    contributors may be used to endorse or promote products derived from
-*    this software without specific prior written permission.
-*
-* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-* FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-* COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-* SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
-* IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-* POSSIBILITY OF SUCH DAMAGE.
-*
-* @file       bmi270_maximum_fifo.c
-* @date       2021-09-30
-* @version    v2.71.8
-*
-*/
+ * Copyright (c) 2021 Bosch Sensortec GmbH. All rights reserved.
+ *
+ * BSD-3-Clause
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its
+ *    contributors may be used to endorse or promote products derived from
+ *    this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @file       bmi270_maximum_fifo.c
+ * @date       2021-09-30
+ * @version    v2.71.8
+ *
+ */
 
 /***************************************************************************/
 
@@ -66,8 +66,7 @@ const uint8_t bmi270_maximum_fifo_config_file[] = {
     0x12, 0x24, 0x1e, 0xf2, 0x80, 0x42, 0x83, 0x84, 0xf1, 0x7f, 0x0a, 0x25, 0x13, 0x30, 0x83, 0x42, 0x3b, 0x82, 0xf0,
     0x6f, 0x00, 0x2e, 0x00, 0x2e, 0xd0, 0x2e, 0x12, 0x40, 0x52, 0x42, 0x00, 0x2e, 0x12, 0x40, 0x52, 0x42, 0x3e, 0x84,
     0x00, 0x40, 0x40, 0x42, 0x7e, 0x82, 0xe1, 0x7f, 0xf2, 0x7f, 0x98, 0x2e, 0x6a, 0xd6, 0x21, 0x30, 0x23, 0x2e, 0x61,
-    0xf5, 0xeb, 0x2c, 0xe1, 0x6f
-};
+    0xf5, 0xeb, 0x2c, 0xe1, 0x6f};
 
 /*! @name  Global array that stores the feature input configuration of BMI270 */
 const struct bmi2_feature_config bmi270_maximum_fifo_feat_in[BMI270_MAXIMUM_FIFO_MAX_FEAT_IN] = {
@@ -109,16 +108,14 @@ static int8_t null_ptr_check(const struct bmi2_dev *dev);
  *  4) Updates the feature offset parameters in the device structure.
  *  5) Updates the maximum number of pages, in the device structure.
  */
-int8_t bmi270_maximum_fifo_init(struct bmi2_dev *dev)
-{
+int8_t bmi270_maximum_fifo_init(struct bmi2_dev *dev) {
     /* Variable to define result */
     int8_t rslt;
 
     /* Null-pointer check */
     rslt = null_ptr_check(dev);
 
-    if (rslt == BMI2_OK)
-    {
+    if (rslt == BMI2_OK) {
         /* Assign chip id of BMI270 */
         dev->chip_id = BMI270_MAXIMUM_FIFO_CHIP_ID;
 
@@ -128,18 +125,14 @@ int8_t bmi270_maximum_fifo_init(struct bmi2_dev *dev)
         dev->variant_feature = BMI2_GYRO_CROSS_SENS_ENABLE | BMI2_MAXIMUM_FIFO_VARIANT;
 
         /* An extra dummy byte is read during SPI read */
-        if (dev->intf == BMI2_SPI_INTF)
-        {
+        if (dev->intf == BMI2_SPI_INTF) {
             dev->dummy_byte = 1;
-        }
-        else
-        {
+        } else {
             dev->dummy_byte = 0;
         }
 
         /* If configuration file pointer is not assigned any address */
-        if (!dev->config_file_ptr)
-        {
+        if (!dev->config_file_ptr) {
             /* Give the address of the configuration file array to
              * the device pointer
              */
@@ -149,8 +142,7 @@ int8_t bmi270_maximum_fifo_init(struct bmi2_dev *dev)
         /* Initialize BMI2 sensor */
         rslt = bmi2_sec_init(dev);
 
-        if (rslt == BMI2_OK)
-        {
+        if (rslt == BMI2_OK) {
             /* Assign the offsets of the feature input
              * configuration to the device structure
              */
@@ -193,13 +185,11 @@ int8_t bmi270_maximum_fifo_init(struct bmi2_dev *dev)
  * @brief This internal API is used to validate the device structure pointer for
  * null conditions.
  */
-static int8_t null_ptr_check(const struct bmi2_dev *dev)
-{
+static int8_t null_ptr_check(const struct bmi2_dev *dev) {
     /* Variable to define result */
     int8_t rslt = BMI2_OK;
 
-    if ((dev == NULL) || (dev->read == NULL) || (dev->write == NULL) || (dev->delay_us == NULL))
-    {
+    if ((dev == NULL) || (dev->read == NULL) || (dev->write == NULL) || (dev->delay_us == NULL)) {
         /* Device structure pointer is not valid */
         rslt = BMI2_E_NULL_PTR;
     }

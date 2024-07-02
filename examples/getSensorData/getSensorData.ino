@@ -1,10 +1,14 @@
+/*
+ * SPDX-FileCopyrightText: 2024 M5Stack Technology CO LTD
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 /**
  * @file getSensorData.ino
- * @author SeanKwok (shaoxiang@m5stack.com)
  * @brief M5Unit IMU Pro Mini Get Sensor Data Demo.
- * @version 0.1
- * @date 2023-11-02
- *
+ * @version 0.2
+ * @date 2024-07-02
  *
  * @Hardwares:M5Unit IMU Pro Mini
  * @Platform Version: Arduino M5Stack Board Manager v2.0.7
@@ -13,6 +17,7 @@
  * Adafruit BMP280 Library: https://github.com/adafruit/Adafruit_BMP280_Library
  * M5Unified: https://github.com/m5stack/M5Unified
  * M5GFX: https://github.com/m5stack/M5GFX
+ *
  */
 
 #include <M5Unified.h>
@@ -74,11 +79,11 @@ void loop(void) {
         bmi270.readMagneticField(mx, my, mz);
 
         Serial.print("mag: \t");
-        Serial.print(x);
+        Serial.print(mx);
         Serial.print('\t');
-        Serial.print(y);
+        Serial.print(my);
         Serial.print('\t');
-        Serial.print(z);
+        Serial.print(mz);
         Serial.println();
     }
 

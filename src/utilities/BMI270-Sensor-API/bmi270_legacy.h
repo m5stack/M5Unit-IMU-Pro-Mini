@@ -1,40 +1,40 @@
 /**
-* Copyright (c) 2021 Bosch Sensortec GmbH. All rights reserved.
-*
-* BSD-3-Clause
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions are met:
-*
-* 1. Redistributions of source code must retain the above copyright
-*    notice, this list of conditions and the following disclaimer.
-*
-* 2. Redistributions in binary form must reproduce the above copyright
-*    notice, this list of conditions and the following disclaimer in the
-*    documentation and/or other materials provided with the distribution.
-*
-* 3. Neither the name of the copyright holder nor the names of its
-*    contributors may be used to endorse or promote products derived from
-*    this software without specific prior written permission.
-*
-* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-* FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-* COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-* SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
-* IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-* POSSIBILITY OF SUCH DAMAGE.
-*
-* @file       bmi270_legacy.h
-* @date       2021-09-30
-* @version    v2.71.8
-*
-*/
+ * Copyright (c) 2021 Bosch Sensortec GmbH. All rights reserved.
+ *
+ * BSD-3-Clause
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its
+ *    contributors may be used to endorse or promote products derived from
+ *    this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @file       bmi270_legacy.h
+ * @date       2021-09-30
+ * @version    v2.71.8
+ *
+ */
 
 /* BMI270_legacy offers same low-power features as in BMI160 */
 
@@ -64,86 +64,86 @@ extern "C" {
  ****************************************************************************/
 
 /*! @name BMI270_LEGACY chip identifier */
-#define BMI270_LEGACY_CHIP_ID                         UINT8_C(0x24)
+#define BMI270_LEGACY_CHIP_ID UINT8_C(0x24)
 
 /*! @name BMI270_LEGACY feature input start addresses */
-#define BMI270_LEGACY_CONFIG_ID_STRT_ADDR             UINT8_C(0x00)
-#define BMI270_LEGACY_MAX_BURST_LEN_STRT_ADDR         UINT8_C(0x02)
-#define BMI270_LEGACY_CRT_GYRO_SELF_TEST_STRT_ADDR    UINT8_C(0x03)
-#define BMI270_LEGACY_ABORT_STRT_ADDR                 UINT8_C(0x03)
-#define BMI270_LEGACY_AXIS_MAP_STRT_ADDR              UINT8_C(0x04)
-#define BMI270_LEGACY_GYRO_SELF_OFF_STRT_ADDR         UINT8_C(0x05)
-#define BMI270_LEGACY_NVM_PROG_PREP_STRT_ADDR         UINT8_C(0x05)
-#define BMI270_LEGACY_ANY_MOT_STRT_ADDR               UINT8_C(0x06)
-#define BMI270_LEGACY_NO_MOT_STRT_ADDR                UINT8_C(0x0A)
-#define BMI270_LEGACY_ORIENT_STRT_ADDR                UINT8_C(0x00)
-#define BMI270_LEGACY_HIGH_G_STRT_ADDR                UINT8_C(0x04)
-#define BMI270_LEGACY_LOW_G_STRT_ADDR                 UINT8_C(0x0A)
-#define BMI270_LEGACY_FLAT_STRT_ADDR                  UINT8_C(0x00)
-#define BMI270_LEGACY_SIG_MOT_STRT_ADDR               UINT8_C(0x04)
-#define BMI270_LEGACY_STEP_COUNT_STRT_ADDR            UINT8_C(0x00)
-#define BMI270_LEGACY_GYRO_USERGAIN_UPDATE_STRT_ADDR  UINT8_C(0x04)
-#define BMI270_LEGACY_TAP_DETECT_1_STRT_ADDR          UINT8_C(0x00)
-#define BMI270_LEGACY_TAP_DETECT_2_STRT_ADDR          UINT8_C(0x00)
+#define BMI270_LEGACY_CONFIG_ID_STRT_ADDR            UINT8_C(0x00)
+#define BMI270_LEGACY_MAX_BURST_LEN_STRT_ADDR        UINT8_C(0x02)
+#define BMI270_LEGACY_CRT_GYRO_SELF_TEST_STRT_ADDR   UINT8_C(0x03)
+#define BMI270_LEGACY_ABORT_STRT_ADDR                UINT8_C(0x03)
+#define BMI270_LEGACY_AXIS_MAP_STRT_ADDR             UINT8_C(0x04)
+#define BMI270_LEGACY_GYRO_SELF_OFF_STRT_ADDR        UINT8_C(0x05)
+#define BMI270_LEGACY_NVM_PROG_PREP_STRT_ADDR        UINT8_C(0x05)
+#define BMI270_LEGACY_ANY_MOT_STRT_ADDR              UINT8_C(0x06)
+#define BMI270_LEGACY_NO_MOT_STRT_ADDR               UINT8_C(0x0A)
+#define BMI270_LEGACY_ORIENT_STRT_ADDR               UINT8_C(0x00)
+#define BMI270_LEGACY_HIGH_G_STRT_ADDR               UINT8_C(0x04)
+#define BMI270_LEGACY_LOW_G_STRT_ADDR                UINT8_C(0x0A)
+#define BMI270_LEGACY_FLAT_STRT_ADDR                 UINT8_C(0x00)
+#define BMI270_LEGACY_SIG_MOT_STRT_ADDR              UINT8_C(0x04)
+#define BMI270_LEGACY_STEP_COUNT_STRT_ADDR           UINT8_C(0x00)
+#define BMI270_LEGACY_GYRO_USERGAIN_UPDATE_STRT_ADDR UINT8_C(0x04)
+#define BMI270_LEGACY_TAP_DETECT_1_STRT_ADDR         UINT8_C(0x00)
+#define BMI270_LEGACY_TAP_DETECT_2_STRT_ADDR         UINT8_C(0x00)
 
 /*! @name BMI270_LEGACY feature output start addresses */
-#define BMI270_LEGACY_STEP_CNT_OUT_STRT_ADDR          UINT8_C(0x00)
-#define BMI270_LEGACY_STEP_ACT_OUT_STRT_ADDR          UINT8_C(0x04)
-#define BMI270_LEGACY_ORIENT_HIGH_G_OUT_STRT_ADDR     UINT8_C(0x06)
-#define BMI270_LEGACY_GYR_USER_GAIN_OUT_STRT_ADDR     UINT8_C(0x08)
-#define BMI270_LEGACY_GYRO_CROSS_SENSE_STRT_ADDR      UINT8_C(0x0C)
-#define BMI270_LEGACY_NVM_VFRM_OUT_STRT_ADDR          UINT8_C(0x0E)
+#define BMI270_LEGACY_STEP_CNT_OUT_STRT_ADDR      UINT8_C(0x00)
+#define BMI270_LEGACY_STEP_ACT_OUT_STRT_ADDR      UINT8_C(0x04)
+#define BMI270_LEGACY_ORIENT_HIGH_G_OUT_STRT_ADDR UINT8_C(0x06)
+#define BMI270_LEGACY_GYR_USER_GAIN_OUT_STRT_ADDR UINT8_C(0x08)
+#define BMI270_LEGACY_GYRO_CROSS_SENSE_STRT_ADDR  UINT8_C(0x0C)
+#define BMI270_LEGACY_NVM_VFRM_OUT_STRT_ADDR      UINT8_C(0x0E)
 
 /*! @name Defines maximum number of pages */
-#define BMI270_LEGACY_MAX_PAGE_NUM                    UINT8_C(8)
+#define BMI270_LEGACY_MAX_PAGE_NUM UINT8_C(8)
 
 /*! @name Defines maximum number of feature input configurations */
-#define BMI270_LEGACY_MAX_FEAT_IN                     UINT8_C(23)
+#define BMI270_LEGACY_MAX_FEAT_IN UINT8_C(23)
 
 /*! @name Defines maximum number of feature outputs */
-#define BMI270_LEGACY_MAX_FEAT_OUT                    UINT8_C(8)
+#define BMI270_LEGACY_MAX_FEAT_OUT UINT8_C(8)
 
 /*! @name Mask definitions for feature interrupt status bits */
-#define BMI270_LEGACY_SIG_MOT_STATUS_MASK             UINT8_C(0x01)
-#define BMI270_LEGACY_STEP_CNT_STATUS_MASK            UINT8_C(0x02)
-#define BMI270_LEGACY_HIGH_G_STATUS_MASK              UINT8_C(0x04)
-#define BMI270_LEGACY_LOW_G_STATUS_MASK               UINT8_C(0x04)
-#define BMI270_LEGACY_TAP_STATUS_MASK                 UINT8_C(0x08)
-#define BMI270_LEGACY_FLAT_STATUS_MASK                UINT8_C(0x10)
-#define BMI270_LEGACY_NO_MOT_STATUS_MASK              UINT8_C(0x20)
-#define BMI270_LEGACY_ANY_MOT_STATUS_MASK             UINT8_C(0x40)
-#define BMI270_LEGACY_ORIENT_STATUS_MASK              UINT8_C(0x80)
-#define BMI270_LEGACY_SINGLE_TAP_MASK                 UINT8_C(0x20)
-#define BMI270_LEGACY_DOUBLE_TAP_MASK                 UINT8_C(0x40)
-#define BMI270_LEGACY_TRIPLE_TAP_MASK                 UINT8_C(0x80)
+#define BMI270_LEGACY_SIG_MOT_STATUS_MASK  UINT8_C(0x01)
+#define BMI270_LEGACY_STEP_CNT_STATUS_MASK UINT8_C(0x02)
+#define BMI270_LEGACY_HIGH_G_STATUS_MASK   UINT8_C(0x04)
+#define BMI270_LEGACY_LOW_G_STATUS_MASK    UINT8_C(0x04)
+#define BMI270_LEGACY_TAP_STATUS_MASK      UINT8_C(0x08)
+#define BMI270_LEGACY_FLAT_STATUS_MASK     UINT8_C(0x10)
+#define BMI270_LEGACY_NO_MOT_STATUS_MASK   UINT8_C(0x20)
+#define BMI270_LEGACY_ANY_MOT_STATUS_MASK  UINT8_C(0x40)
+#define BMI270_LEGACY_ORIENT_STATUS_MASK   UINT8_C(0x80)
+#define BMI270_LEGACY_SINGLE_TAP_MASK      UINT8_C(0x20)
+#define BMI270_LEGACY_DOUBLE_TAP_MASK      UINT8_C(0x40)
+#define BMI270_LEGACY_TRIPLE_TAP_MASK      UINT8_C(0x80)
 
 /*! @name Status register for tap */
-#define BMI270_LEGACY_TAP_STATUS_REG                  UINT8_C(0x20)
+#define BMI270_LEGACY_TAP_STATUS_REG UINT8_C(0x20)
 
 /*! @name Macros for high-g interrupt axis/sign */
-#define BMI270_LEGACY_HIGH_G_DETECT_X                 UINT8_C(0x08)
-#define BMI270_LEGACY_HIGH_G_DETECT_Y                 UINT8_C(0x10)
-#define BMI270_LEGACY_HIGH_G_DETECT_Z                 UINT8_C(0x20)
-#define BMI270_LEGACY_HIGH_G_DETECT_SIGN              UINT8_C(0x40)
+#define BMI270_LEGACY_HIGH_G_DETECT_X    UINT8_C(0x08)
+#define BMI270_LEGACY_HIGH_G_DETECT_Y    UINT8_C(0x10)
+#define BMI270_LEGACY_HIGH_G_DETECT_Z    UINT8_C(0x20)
+#define BMI270_LEGACY_HIGH_G_DETECT_SIGN UINT8_C(0x40)
 
 /*! @name Mask definitions for feature interrupt mapping bits */
-#define BMI270_LEGACY_INT_SIG_MOT_MASK                UINT8_C(0x01)
-#define BMI270_LEGACY_INT_STEP_COUNTER_MASK           UINT8_C(0x02)
-#define BMI270_LEGACY_INT_STEP_DETECTOR_MASK          UINT8_C(0x02)
-#define BMI270_LEGACY_INT_STEP_ACTIVITY_MASK          UINT8_C(0x02)
-#define BMI270_LEGACY_INT_HIGH_G_MASK                 UINT8_C(0x04)
-#define BMI270_LEGACY_INT_LOW_G_MASK                  UINT8_C(0x04)
-#define BMI270_LEGACY_INT_TAP_MASK                    UINT8_C(0x08)
-#define BMI270_LEGACY_INT_FLAT_MASK                   UINT8_C(0x10)
-#define BMI270_LEGACY_INT_NO_MOT_MASK                 UINT8_C(0x20)
-#define BMI270_LEGACY_INT_ANY_MOT_MASK                UINT8_C(0x40)
-#define BMI270_LEGACY_INT_ORIENT_MASK                 UINT8_C(0x80)
-#define BMI270_LEGACY_INT_SINGLE_TAP_MASK             UINT8_C(0x20)
-#define BMI270_LEGACY_INT_DOUBLE_TAP_MASK             UINT8_C(0x40)
-#define BMI270_LEGACY_INT_TRIPLE_TAP_MASK             UINT8_C(0x80)
+#define BMI270_LEGACY_INT_SIG_MOT_MASK       UINT8_C(0x01)
+#define BMI270_LEGACY_INT_STEP_COUNTER_MASK  UINT8_C(0x02)
+#define BMI270_LEGACY_INT_STEP_DETECTOR_MASK UINT8_C(0x02)
+#define BMI270_LEGACY_INT_STEP_ACTIVITY_MASK UINT8_C(0x02)
+#define BMI270_LEGACY_INT_HIGH_G_MASK        UINT8_C(0x04)
+#define BMI270_LEGACY_INT_LOW_G_MASK         UINT8_C(0x04)
+#define BMI270_LEGACY_INT_TAP_MASK           UINT8_C(0x08)
+#define BMI270_LEGACY_INT_FLAT_MASK          UINT8_C(0x10)
+#define BMI270_LEGACY_INT_NO_MOT_MASK        UINT8_C(0x20)
+#define BMI270_LEGACY_INT_ANY_MOT_MASK       UINT8_C(0x40)
+#define BMI270_LEGACY_INT_ORIENT_MASK        UINT8_C(0x80)
+#define BMI270_LEGACY_INT_SINGLE_TAP_MASK    UINT8_C(0x20)
+#define BMI270_LEGACY_INT_DOUBLE_TAP_MASK    UINT8_C(0x40)
+#define BMI270_LEGACY_INT_TRIPLE_TAP_MASK    UINT8_C(0x80)
 
 /*! @name Defines maximum number of feature interrupts */
-#define BMI270_LEGACY_MAX_INT_MAP                     UINT8_C(14)
+#define BMI270_LEGACY_MAX_INT_MAP UINT8_C(14)
 
 /***************************************************************************/
 
@@ -365,8 +365,8 @@ int8_t bmi270_legacy_get_sensor_config(struct bmi2_sens_config *sens_cfg, uint8_
  * \ingroup bmi270_legacyApiSensorD
  * \page bmi270_legacy_api_bmi270_legacy_get_feature_data bmi270_legacy_get_feature_data
  * \code
- * int8_t bmi270_legacy_get_feature_data(struct bmi2_feat_sensor_data *feature_data, uint8_t n_sens, struct bmi2_dev *dev);
- * \endcode
+ * int8_t bmi270_legacy_get_feature_data(struct bmi2_feat_sensor_data *feature_data, uint8_t n_sens, struct bmi2_dev
+ **dev); \endcode
  * @details This API gets the feature data.
  *
  * @param[out] feature_data   : Structure instance of bmi2_feat_sensor_data.

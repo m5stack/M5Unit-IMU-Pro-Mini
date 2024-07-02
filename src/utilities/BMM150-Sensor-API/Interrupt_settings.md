@@ -47,50 +47,50 @@
  
 
    ### TABLE 1.0-Macros for enabling the desired_settings	
-Macros to set for "desired_settings" | Settings which can be enabled/Disabled
--------------------------------------|----------------------------------------------------------
-BMM150_SEL_DRDY_PIN_EN               | Data ready interrupt mapping to DRDY PIN 		
-BMM150_SEL_INT_PIN_EN                | Low-Threshold, High-Threshold and Overflow interrupts mapping to INT PIN 
-BMM150_SEL_DRDY_POLARITY             | Polarity of DRDY pin 
-BMM150_SEL_INT_LATCH                 | Latch settings of INT pin
-BMM150_SEL_INT_POLARITY              | Polarity of INT pin
-BMM150_SEL_DATA_OVERRUN_INT          | Data overrun interrupt setting
-BMM150_SEL_OVERFLOW_INT              | Data overflow interrupt setting
-BMM150_SEL_HIGH_THRESHOLD_INT        | High threshold interrupt setting
-BMM150_SEL_LOW_THRESHOLD_INT         | Low threshold interrupt setting
-BMM150_SEL_LOW_THRESHOLD_SETTING     | Setting Low threshold value to trigger interrupt 
-BMM150_SEL_HIGH_THRESHOLD_SETTING    | Setting High threshold value to trigger interrupt
+| Macros to set for "desired_settings" | Settings which can be enabled/Disabled                                   |
+| ------------------------------------ | ------------------------------------------------------------------------ |
+| BMM150_SEL_DRDY_PIN_EN               | Data ready interrupt mapping to DRDY PIN                                 |
+| BMM150_SEL_INT_PIN_EN                | Low-Threshold, High-Threshold and Overflow interrupts mapping to INT PIN |
+| BMM150_SEL_DRDY_POLARITY             | Polarity of DRDY pin                                                     |
+| BMM150_SEL_INT_LATCH                 | Latch settings of INT pin                                                |
+| BMM150_SEL_INT_POLARITY              | Polarity of INT pin                                                      |
+| BMM150_SEL_DATA_OVERRUN_INT          | Data overrun interrupt setting                                           |
+| BMM150_SEL_OVERFLOW_INT              | Data overflow interrupt setting                                          |
+| BMM150_SEL_HIGH_THRESHOLD_INT        | High threshold interrupt setting                                         |
+| BMM150_SEL_LOW_THRESHOLD_INT         | Low threshold interrupt setting                                          |
+| BMM150_SEL_LOW_THRESHOLD_SETTING     | Setting Low threshold value to trigger interrupt                         |
+| BMM150_SEL_HIGH_THRESHOLD_SETTING    | Setting High threshold value to trigger interrupt                        |
   
 
    ### TABLE 1.1-Interrupt configuration settings
-|User configuration in the dev structure     |Macros which can be assigned| Significance  
-|-------------------------------------------|--------------------------- |-----------------------------------------------
-|dev->settings.int_settings.drdy_pin_en     | BMM150_INT_ENABLE          | Maps the data ready interrupt to the DRDY pin of sensor
-|^                                          | BMM150_INT_DISABLE         | Disables the mapping of data ready interrupt signal to the DRDY pin
-||||                                                                  
-|dev->settings.int_settings.int_pin_en      | BMM150_INT_ENABLE          | Enables the mapping of Low-Threshold, High-Threshold and Overflow interrupts to INT (interrupt) pin 
-|^                                          | BMM150_INT_DISABLE         | Disables the interrupt mapping to the INT pin
-|||| 
-|dev->settings.int_settings.drdy_polarity   | BMM150_ACTIVE_HIGH_POLARITY| Sets the interrupt signal polarity in DRDY pin as active high
-|^                                          | BMM150_ACTIVE_LOW_POLARITY | Sets the interrupt signal polarity in DRDY pin as active low 
-|||| 
-|dev->settings.int_settings.int_polarity    | BMM150_ACTIVE_HIGH_POLARITY| Sets the interrupt signal polarity in INT pin as active high
-|^                                          | BMM150_ACTIVE_LOW_POLARITY | Sets the interrupt signal polarity in INT pin as active low 
-|||| 
-|dev->settings.int_settings.int_latch       | BMM150_LATCHED             | Sets the interrupt signal in INT pin in latched mode
-|^                                          | BMM150_NON_LATCHED         | Sets the interrupt signal in INT pin in non - latched mode
-|||| 
-|dev->settings.int_settings.data_overrun_en | BMM150_INT_ENABLE          | Enables the data overrun interrupt
-|^                                          | BMM150_INT_DISABLE         | Disables the data overrun interrupt 
-|||| 
-|dev->settings.int_settings.overflow_int_en | BMM150_INT_ENABLE          | Enables the overflow interrupt
-|^                                          | BMM150_INT_DISABLE         | Disables the overflow interrupt 
-|||| 
-|dev->settings.int_settings.high_int_en     | BMM150_THRESHOLD_X         | Enables the threshold interrupt detection for X axis
-|dev->settings.int_settings.high_int_en     | BMM150_THRESHOLD_Y         | Enables the threshold interrupt detection for Y axis
-|^                                          | BMM150_THRESHOLD_Z         | Enables the threshold interrupt detection for Z axis
-|^                                          |(BMM150_THRESHOLD_X & BMM150_THRESHOLD_Y) |   Enables the threshold interrupt detection for x,y axes 
-|^                                          |(BMM150_THRESHOLD_X & BMM150_THRESHOLD_Y &  BMM150_THRESHOLD_Z) | Enables the threshold interrupt interrupt detection for all 3  X,Y and Z axes
+| User configuration in the dev structure    | Macros which can be assigned                                    | Significance                                                                                        |
+| ------------------------------------------ | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| dev->settings.int_settings.drdy_pin_en     | BMM150_INT_ENABLE                                               | Maps the data ready interrupt to the DRDY pin of sensor                                             |
+| ^                                          | BMM150_INT_DISABLE                                              | Disables the mapping of data ready interrupt signal to the DRDY pin                                 |
+|                                            |                                                                 |                                                                                                     |
+| dev->settings.int_settings.int_pin_en      | BMM150_INT_ENABLE                                               | Enables the mapping of Low-Threshold, High-Threshold and Overflow interrupts to INT (interrupt) pin |
+| ^                                          | BMM150_INT_DISABLE                                              | Disables the interrupt mapping to the INT pin                                                       |
+|                                            |                                                                 |                                                                                                     |
+| dev->settings.int_settings.drdy_polarity   | BMM150_ACTIVE_HIGH_POLARITY                                     | Sets the interrupt signal polarity in DRDY pin as active high                                       |
+| ^                                          | BMM150_ACTIVE_LOW_POLARITY                                      | Sets the interrupt signal polarity in DRDY pin as active low                                        |
+|                                            |                                                                 |                                                                                                     |
+| dev->settings.int_settings.int_polarity    | BMM150_ACTIVE_HIGH_POLARITY                                     | Sets the interrupt signal polarity in INT pin as active high                                        |
+| ^                                          | BMM150_ACTIVE_LOW_POLARITY                                      | Sets the interrupt signal polarity in INT pin as active low                                         |
+|                                            |                                                                 |                                                                                                     |
+| dev->settings.int_settings.int_latch       | BMM150_LATCHED                                                  | Sets the interrupt signal in INT pin in latched mode                                                |
+| ^                                          | BMM150_NON_LATCHED                                              | Sets the interrupt signal in INT pin in non - latched mode                                          |
+|                                            |                                                                 |                                                                                                     |
+| dev->settings.int_settings.data_overrun_en | BMM150_INT_ENABLE                                               | Enables the data overrun interrupt                                                                  |
+| ^                                          | BMM150_INT_DISABLE                                              | Disables the data overrun interrupt                                                                 |
+|                                            |                                                                 |                                                                                                     |
+| dev->settings.int_settings.overflow_int_en | BMM150_INT_ENABLE                                               | Enables the overflow interrupt                                                                      |
+| ^                                          | BMM150_INT_DISABLE                                              | Disables the overflow interrupt                                                                     |
+|                                            |                                                                 |                                                                                                     |
+| dev->settings.int_settings.high_int_en     | BMM150_THRESHOLD_X                                              | Enables the threshold interrupt detection for X axis                                                |
+| dev->settings.int_settings.high_int_en     | BMM150_THRESHOLD_Y                                              | Enables the threshold interrupt detection for Y axis                                                |
+| ^                                          | BMM150_THRESHOLD_Z                                              | Enables the threshold interrupt detection for Z axis                                                |
+| ^                                          | (BMM150_THRESHOLD_X & BMM150_THRESHOLD_Y)                       | Enables the threshold interrupt detection for x,y axes                                              |
+| ^                                          | (BMM150_THRESHOLD_X & BMM150_THRESHOLD_Y &  BMM150_THRESHOLD_Z) | Enables the threshold interrupt interrupt detection for all 3  X,Y and Z axes                       |
  
  
 ### Configuring and handling BMM150 Interrupts 

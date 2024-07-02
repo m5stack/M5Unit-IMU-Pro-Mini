@@ -1,40 +1,40 @@
 /**
-* Copyright (c) 2021 Bosch Sensortec GmbH. All rights reserved.
-*
-* BSD-3-Clause
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions are met:
-*
-* 1. Redistributions of source code must retain the above copyright
-*    notice, this list of conditions and the following disclaimer.
-*
-* 2. Redistributions in binary form must reproduce the above copyright
-*    notice, this list of conditions and the following disclaimer in the
-*    documentation and/or other materials provided with the distribution.
-*
-* 3. Neither the name of the copyright holder nor the names of its
-*    contributors may be used to endorse or promote products derived from
-*    this software without specific prior written permission.
-*
-* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
-* FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
-* COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-* INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-* SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
-* HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-* STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
-* IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-* POSSIBILITY OF SUCH DAMAGE.
-*
-* @file       bmi270_context.h
-* @date       2021-09-30
-* @version    v2.71.8
-*
-*/
+ * Copyright (c) 2021 Bosch Sensortec GmbH. All rights reserved.
+ *
+ * BSD-3-Clause
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its
+ *    contributors may be used to endorse or promote products derived from
+ *    this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * @file       bmi270_context.h
+ * @date       2021-09-30
+ * @version    v2.71.8
+ *
+ */
 
 /**
  * \ingroup bmi2xy
@@ -62,43 +62,43 @@ extern "C" {
  ****************************************************************************/
 
 /*! @name BMI270_CONTEXT Chip identifier */
-#define BMI270_CONTEXT_CHIP_ID                       UINT8_C(0x24)
+#define BMI270_CONTEXT_CHIP_ID UINT8_C(0x24)
 
 /*! @name BMI270_CONTEXT feature input start addresses */
-#define BMI270_CONTEXT_CONFIG_ID_STRT_ADDR           UINT8_C(0x06)
-#define BMI270_CONTEXT_STEP_CNT_1_STRT_ADDR          UINT8_C(0x00)
-#define BMI270_CONTEXT_STEP_CNT_4_STRT_ADDR          UINT8_C(0x02)
-#define BMI270_CONTEXT_MAX_BURST_LEN_STRT_ADDR       UINT8_C(0x08)
-#define BMI270_CONTEXT_CRT_GYRO_SELF_TEST_STRT_ADDR  UINT8_C(0x09)
-#define BMI270_CONTEXT_ABORT_STRT_ADDR               UINT8_C(0x09)
-#define BMI270_CONTEXT_NVM_PROG_PREP_STRT_ADDR       UINT8_C(0x0A)
-#define BMI270_CONTEXT_ACT_RGN_SETT_STRT_ADDR        UINT8_C(0x00)
-#define BMI270_CONTEXT_ACT_RGN_STRT_ADDR             UINT8_C(0x0A)
+#define BMI270_CONTEXT_CONFIG_ID_STRT_ADDR          UINT8_C(0x06)
+#define BMI270_CONTEXT_STEP_CNT_1_STRT_ADDR         UINT8_C(0x00)
+#define BMI270_CONTEXT_STEP_CNT_4_STRT_ADDR         UINT8_C(0x02)
+#define BMI270_CONTEXT_MAX_BURST_LEN_STRT_ADDR      UINT8_C(0x08)
+#define BMI270_CONTEXT_CRT_GYRO_SELF_TEST_STRT_ADDR UINT8_C(0x09)
+#define BMI270_CONTEXT_ABORT_STRT_ADDR              UINT8_C(0x09)
+#define BMI270_CONTEXT_NVM_PROG_PREP_STRT_ADDR      UINT8_C(0x0A)
+#define BMI270_CONTEXT_ACT_RGN_SETT_STRT_ADDR       UINT8_C(0x00)
+#define BMI270_CONTEXT_ACT_RGN_STRT_ADDR            UINT8_C(0x0A)
 
 /*! @name BMI270_CONTEXT feature output start addresses */
-#define BMI270_CONTEXT_STEP_CNT_OUT_STRT_ADDR        UINT8_C(0x00)
-#define BMI270_CONTEXT_GYR_USER_GAIN_OUT_STRT_ADDR   UINT8_C(0x04)
-#define BMI270_CONTEXT_GYRO_CROSS_SENSE_STRT_ADDR    UINT8_C(0x0C)
-#define BMI270_CONTEXT_NVM_VFRM_OUT_STRT_ADDR        UINT8_C(0x0E)
+#define BMI270_CONTEXT_STEP_CNT_OUT_STRT_ADDR      UINT8_C(0x00)
+#define BMI270_CONTEXT_GYR_USER_GAIN_OUT_STRT_ADDR UINT8_C(0x04)
+#define BMI270_CONTEXT_GYRO_CROSS_SENSE_STRT_ADDR  UINT8_C(0x0C)
+#define BMI270_CONTEXT_NVM_VFRM_OUT_STRT_ADDR      UINT8_C(0x0E)
 
 /*! @name Defines maximum number of pages */
-#define BMI270_CONTEXT_MAX_PAGE_NUM                  UINT8_C(8)
+#define BMI270_CONTEXT_MAX_PAGE_NUM UINT8_C(8)
 
 /*! @name Defines maximum number of feature input configurations */
-#define BMI270_CONTEXT_MAX_FEAT_IN                   UINT8_C(10)
+#define BMI270_CONTEXT_MAX_FEAT_IN UINT8_C(10)
 
 /*! @name Defines maximum number of feature outputs */
-#define BMI270_CONTEXT_MAX_FEAT_OUT                  UINT8_C(5)
+#define BMI270_CONTEXT_MAX_FEAT_OUT UINT8_C(5)
 
 /*! @name Mask definitions for feature interrupt status bits */
-#define BMI270_CONTEXT_STEP_CNT_STATUS_MASK          UINT8_C(0x01)
+#define BMI270_CONTEXT_STEP_CNT_STATUS_MASK UINT8_C(0x01)
 
 /*! @name Mask definitions for feature interrupt mapping bits */
-#define BMI270_C_INT_STEP_COUNTER_MASK               UINT8_C(0x01)
-#define BMI270_C_INT_STEP_DETECTOR_MASK              UINT8_C(0x01)
+#define BMI270_C_INT_STEP_COUNTER_MASK  UINT8_C(0x01)
+#define BMI270_C_INT_STEP_DETECTOR_MASK UINT8_C(0x01)
 
 /*! @name Defines maximum number of feature interrupts */
-#define BMI270_C_MAX_INT_MAP                         UINT8_C(2)
+#define BMI270_C_MAX_INT_MAP UINT8_C(2)
 
 /***************************************************************************/
 
@@ -282,8 +282,8 @@ int8_t bmi270_context_get_sensor_config(struct bmi2_sens_config *sens_cfg, uint8
  * \ingroup bmi270_contextApiSensorD
  * \page bmi270_context_api_bmi270_context_get_feature_data bmi270_context_get_feature_data
  * \code
- * int8_t bmi270_context_get_feature_data(struct bmi2_feat_sensor_data *feature_data, uint8_t n_sens, struct bmi2_dev *dev);
- * \endcode
+ * int8_t bmi270_context_get_feature_data(struct bmi2_feat_sensor_data *feature_data, uint8_t n_sens, struct bmi2_dev
+ **dev); \endcode
  * @details This API gets the feature data.
  *
  * @param[out] feature_data   : Structure instance of bmi2_feat_sensor_data.
@@ -419,10 +419,8 @@ int8_t bmi270_context_set_act_recg_sett(const struct bmi2_act_recg_sett *sett, s
  * @retval 0 -> Success
  * @retval < 0 -> Fail
  */
-int8_t bmi270_context_get_act_recog_output(struct bmi2_act_recog_output *act_recog,
-                                           uint16_t *act_frm_len,
-                                           struct bmi2_fifo_frame *fifo,
-                                           const struct bmi2_dev *dev);
+int8_t bmi270_context_get_act_recog_output(struct bmi2_act_recog_output *act_recog, uint16_t *act_frm_len,
+                                           struct bmi2_fifo_frame *fifo, const struct bmi2_dev *dev);
 
 /*!
  * \ingroup bmi270_contextApiInt

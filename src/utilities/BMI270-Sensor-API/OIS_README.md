@@ -44,14 +44,14 @@ To configure OIS interface, an instance of the bmi2_ois_dev structure should be
 created. The following parameters are required to be updated in the structure,
 by the user.
 
-Parameters    | Details
---------------|-----------------------------------
-_intf_ptr_    | device address reference of SPI interface        
-_ois_read_    | read through SPI interface
-_ois_write_   | read through SPI interface
-_ois_delay_us_| delay in micro seconds
-_acc_en_      | for enabling accelerometer
-_gyr_en_      | for enabling gyroscope   
+| Parameters     | Details                                   |
+| -------------- | ----------------------------------------- |
+| _intf_ptr_     | device address reference of SPI interface |
+| _ois_read_     | read through SPI interface                |
+| _ois_write_    | read through SPI interface                |
+| _ois_delay_us_ | delay in micro seconds                    |
+| _acc_en_       | for enabling accelerometer                |
+| _gyr_en_       | for enabling gyroscope                    |
 
 ``` c
 int8_t rslt = 0;

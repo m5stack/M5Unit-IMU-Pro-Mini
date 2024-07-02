@@ -1,6 +1,11 @@
+/*
+ * SPDX-FileCopyrightText: 2024 M5Stack Technology CO LTD
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 /**
  * @file AHRS.ino
- * @author SeanKwok (shaoxiang@m5stack.com)
  * @brief M5Unit IMU Pro Mini Get roll, pitch, yaw Data Demo.
  * @version 0.1
  * @date 2023-11-02

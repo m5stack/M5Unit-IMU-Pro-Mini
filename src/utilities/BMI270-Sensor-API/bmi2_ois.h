@@ -66,72 +66,67 @@ extern "C" {
 /******************************************************************************/
 
 #ifndef BMI2_INTF_RETURN_TYPE
-#define BMI2_INTF_RETURN_TYPE  int8_t
+#define BMI2_INTF_RETURN_TYPE int8_t
 #endif
 
 /*! @name  Utility macros */
 #define BMI2_OIS_SET_BITS(reg_data, bitname, data) \
-    ((reg_data & ~(bitname##_MASK)) | \
-     ((data << bitname##_POS) & bitname##_MASK))
+    ((reg_data & ~(bitname##_MASK)) | ((data << bitname##_POS) & bitname##_MASK))
 
-#define BMI2_OIS_GET_BITS(reg_data, bitname) \
-    ((reg_data & (bitname##_MASK)) >> \
-     (bitname##_POS))
+#define BMI2_OIS_GET_BITS(reg_data, bitname) ((reg_data & (bitname##_MASK)) >> (bitname##_POS))
 
-#define BMI2_SET_BIT_POS0(reg_data, bitname, data) \
-    ((reg_data & ~(bitname##_MASK)) | \
-     (data & bitname##_MASK))
+#define BMI2_SET_BIT_POS0(reg_data, bitname, data) ((reg_data & ~(bitname##_MASK)) | (data & bitname##_MASK))
 
-#define BMI2_GET_BIT_POS0(reg_data, bitname)  (reg_data & (bitname##_MASK))
+#define BMI2_GET_BIT_POS0(reg_data, bitname) (reg_data & (bitname##_MASK))
 
 /*! @name For enable and disable */
-#define BMI2_OIS_ENABLE                       UINT8_C(1)
-#define BMI2_OIS_DISABLE                      UINT8_C(0)
+#define BMI2_OIS_ENABLE  UINT8_C(1)
+#define BMI2_OIS_DISABLE UINT8_C(0)
 
 /*! @name To define sensor interface success code */
-#define BMI2_INTF_RET_SUCCESS                 INT8_C(0)
+#define BMI2_INTF_RET_SUCCESS INT8_C(0)
 
 /*! @name To define success code */
-#define BMI2_OIS_OK                           UINT8_C(0)
+#define BMI2_OIS_OK UINT8_C(0)
 
 /*! @name To define error codes */
-#define BMI2_OIS_E_NULL_PTR                   INT8_C(-1)
-#define BMI2_OIS_E_COM_FAIL                   INT8_C(-2)
-#define BMI2_OIS_E_INVALID_SENSOR             INT8_C(-8)
+#define BMI2_OIS_E_NULL_PTR       INT8_C(-1)
+#define BMI2_OIS_E_COM_FAIL       INT8_C(-2)
+#define BMI2_OIS_E_INVALID_SENSOR INT8_C(-8)
 
 /*! @name Mask definitions for SPI read/write address for OIS */
-#define BMI2_OIS_SPI_RD_MASK                  UINT8_C(0x80)
-#define BMI2_OIS_SPI_WR_MASK                  UINT8_C(0x7F)
+#define BMI2_OIS_SPI_RD_MASK UINT8_C(0x80)
+#define BMI2_OIS_SPI_WR_MASK UINT8_C(0x7F)
 
 /*! @name BMI2 OIS data bytes */
-#define BMI2_OIS_ACC_GYR_NUM_BYTES            UINT8_C(6)
+#define BMI2_OIS_ACC_GYR_NUM_BYTES UINT8_C(6)
 
 /*!  @name Macros to select sensor for OIS data read */
-#define BMI2_OIS_ACCEL                        UINT8_C(0x01)
-#define BMI2_OIS_GYRO                         UINT8_C(0x02)
+#define BMI2_OIS_ACCEL UINT8_C(0x01)
+#define BMI2_OIS_GYRO  UINT8_C(0x02)
 
 /*!  @name Macros to define OIS register addresses */
-#define BMI2_OIS_CONFIG_ADDR                  UINT8_C(0x40)
-#define BMI2_OIS_ACC_X_LSB_ADDR               UINT8_C(0x0C)
-#define BMI2_OIS_GYR_X_LSB_ADDR               UINT8_C(0x12)
+#define BMI2_OIS_CONFIG_ADDR    UINT8_C(0x40)
+#define BMI2_OIS_ACC_X_LSB_ADDR UINT8_C(0x0C)
+#define BMI2_OIS_GYR_X_LSB_ADDR UINT8_C(0x12)
 
 /*! @name Mask definitions for OIS configurations */
-#define BMI2_OIS_GYR_EN_MASK                  UINT8_C(0x40)
-#define BMI2_OIS_ACC_EN_MASK                  UINT8_C(0x80)
+#define BMI2_OIS_GYR_EN_MASK UINT8_C(0x40)
+#define BMI2_OIS_ACC_EN_MASK UINT8_C(0x80)
 
 /*! @name Bit Positions for OIS configurations */
-#define BMI2_OIS_GYR_EN_POS                   UINT8_C(0x06)
-#define BMI2_OIS_ACC_EN_POS                   UINT8_C(0x07)
+#define BMI2_OIS_GYR_EN_POS UINT8_C(0x06)
+#define BMI2_OIS_ACC_EN_POS UINT8_C(0x07)
 
 /*! Low pass filter configuration position and mask */
-#define BMI2_OIS_LP_FILTER_EN_POS             UINT8_C(0x00)
-#define BMI2_OIS_LP_FILTER_EN_MASK            UINT8_C(0x01)
+#define BMI2_OIS_LP_FILTER_EN_POS  UINT8_C(0x00)
+#define BMI2_OIS_LP_FILTER_EN_MASK UINT8_C(0x01)
 
-#define BMI2_OIS_LP_FILTER_CONFIG_POS         UINT8_C(0x01)
-#define BMI2_OIS_LP_FILTER_CONFIG_MASK        UINT8_C(0x06)
+#define BMI2_OIS_LP_FILTER_CONFIG_POS  UINT8_C(0x01)
+#define BMI2_OIS_LP_FILTER_CONFIG_MASK UINT8_C(0x06)
 
-#define BMI2_OIS_LP_FILTER_MUTE_POS           UINT8_C(0x05)
-#define BMI2_OIS_LP_FILTER_MUTE_MASK          UINT8_C(0x20)
+#define BMI2_OIS_LP_FILTER_MUTE_POS  UINT8_C(0x05)
+#define BMI2_OIS_LP_FILTER_MUTE_MASK UINT8_C(0x20)
 
 /******************************************************************************/
 /*! @name           Function Pointers                             */
@@ -186,8 +181,7 @@ typedef void (*bmi2_ois_delay_fptr_t)(uint32_t period, void *intf_ptr);
 /*!  @name         Structure Declarations                             */
 /******************************************************************************/
 /*! @name Structure to define accelerometer and gyroscope sensor axes for OIS */
-struct bmi2_ois_sens_axes_data
-{
+struct bmi2_ois_sens_axes_data {
     /*! Data in x-axis */
     int16_t x;
 
@@ -196,12 +190,10 @@ struct bmi2_ois_sens_axes_data
 
     /*! Data in z-axis */
     int16_t z;
-
 };
 
 /*!  @name Structure to define bmi2 OIS sensor configurations */
-struct bmi2_ois_dev
-{
+struct bmi2_ois_dev {
     /*! Read function pointer */
     bmi2_ois_read_fptr_t ois_read;
 
@@ -294,9 +286,7 @@ int8_t bmi2_ois_get_regs(uint8_t ois_reg_addr, uint8_t *ois_reg_data, uint16_t d
  * @retval 0 -> Success
  * @retval < 0 -> Fail
  */
-int8_t bmi2_ois_set_regs(uint8_t ois_reg_addr,
-                         const uint8_t *ois_reg_data,
-                         uint16_t data_len,
+int8_t bmi2_ois_set_regs(uint8_t ois_reg_addr, const uint8_t *ois_reg_data, uint16_t data_len,
                          struct bmi2_ois_dev *ois_dev);
 
 /**
@@ -375,9 +365,7 @@ int8_t bmi2_ois_get_config(struct bmi2_ois_dev *ois_dev);
  * @retval 0 -> Success
  * @retval < 0 -> Fail
  */
-int8_t bmi2_ois_read_data(const uint8_t *sens_sel,
-                          uint8_t n_sens,
-                          struct bmi2_ois_dev *ois_dev,
+int8_t bmi2_ois_read_data(const uint8_t *sens_sel, uint8_t n_sens, struct bmi2_ois_dev *ois_dev,
                           int16_t gyr_cross_sens_zx);
 
 #ifdef __cplusplus

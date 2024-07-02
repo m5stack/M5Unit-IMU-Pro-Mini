@@ -4,9 +4,9 @@
  * @brief Port to IDF
  * @version 0.1
  * @date 2023-05-24
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 /*
   This file is part of the Arduino_LSM9DS1 library.
@@ -32,84 +32,75 @@
 #include <iostream>
 #include <string>
 
-
 namespace BMI270 {
 
-    struct dev_info {
-        i2c_port_t i2c_port = 0;
-        uint8_t dev_addr;
-    };
+struct dev_info {
+    i2c_port_t i2c_port = 0;
+    uint8_t dev_addr;
+};
 
+class BMI270 {
+   private:
+    i2c_port_t _i2c_port;
 
-    class BMI270 {
-        private:
-            i2c_port_t _i2c_port;
+    bool _initialized = false;
+    int _interrupts   = 0;
+    struct dev_info accel_gyro_dev_info;
+    struct dev_info mag_dev_info;
+    struct bmi2_dev bmi2;
+    struct bmm150_dev bmm1;
+    uint16_t _int_status;
+    bool bmm150_init_status;
 
-            bool _initialized = false;
-            int _interrupts = 0;
-            struct dev_info accel_gyro_dev_info;
-            struct dev_info mag_dev_info;
-            struct bmi2_dev bmi2;
-            struct bmm150_dev bmm1;
-            uint16_t _int_status;
-            bool bmm150_init_status;
+    bool continuousMode;
 
-            bool continuousMode;
+    static int8_t bmi2_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr);
+    static int8_t bmi2_i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr);
+    static void bmi2_delay_us(uint32_t period, void *intf_ptr);
 
+    static int8_t aux_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t length, void *intf_ptr);
+    static int8_t aux_i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t length, void *intf_ptr);
 
-            static int8_t bmi2_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr);
-            static int8_t bmi2_i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr);
-            static void bmi2_delay_us(uint32_t period, void *intf_ptr);
+    void print_rslt(int8_t rslt);
 
-            static int8_t aux_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t length, void *intf_ptr);
-            static int8_t aux_i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t length, void *intf_ptr);
+   protected:
+    // can be modified by subclassing for finer configuration
+    virtual int8_t configure_sensor(struct bmm150_dev *dev);
+    virtual int8_t configure_sensor(struct bmi2_dev *dev);
 
-            void print_rslt(int8_t rslt);
+   public:
+    BMI270()  = default;
+    ~BMI270() = default;
 
-        
-        protected:
-            // can be modified by subclassing for finer configuration
-            virtual int8_t configure_sensor(struct bmm150_dev *dev);
-            virtual int8_t configure_sensor(struct bmi2_dev *dev);
+    void setContinuousMode();
+    void oneShotMode();
 
+    int init(i2c_port_t i2c_port, uint8_t bmiAddr);
 
-        public:
-            BMI270() = default;
-            ~BMI270() = default;
+    // Accelerometer
+    virtual int readAcceleration(float &x, float &y, float &z);  // Results are in G (earth gravity).
+    virtual int accelerationAvailable();                         // Number of samples in the FIFO.
+    virtual float accelerationSampleRate();                      // Sampling rate of the sensor.
 
+    // Gyroscope
+    virtual int readGyroscope(float &x, float &y, float &z);  // Results are in degrees/second.
+    virtual int gyroscopeAvailable();                         // Number of samples in the FIFO.
+    virtual float gyroscopeSampleRate();                      // Sampling rate of the sensor.
 
-            void setContinuousMode();
-            void oneShotMode();
+    // Magnetometer
+    virtual int readMagneticField(int16_t &x, int16_t &y, int16_t &z);  // Results are in uT (micro Tesla).
+    virtual int magneticFieldAvailable();                               // Number of samples in the FIFO.
+    virtual float magneticFieldSampleRate();                            // Sampling rate of the sensor.
 
-            int init(i2c_port_t i2c_port, uint8_t bmiAddr);
+    // float getTemperature();
 
+    void setWristWearWakeup();
+    int getGesture();
+    std::string getGestureName(uint8_t gesture);
 
-            // Accelerometer
-            virtual int readAcceleration(float &x, float &y, float &z); // Results are in G (earth gravity).
-            virtual int accelerationAvailable();                        // Number of samples in the FIFO.
-            virtual float accelerationSampleRate();                     // Sampling rate of the sensor.
+    void enableStepCounter();
+    uint32_t getSteps();
+    bool bmm150isEnabled();
+};
 
-            // Gyroscope
-            virtual int readGyroscope(float &x, float &y, float &z); // Results are in degrees/second.
-            virtual int gyroscopeAvailable();                        // Number of samples in the FIFO.
-            virtual float gyroscopeSampleRate();                     // Sampling rate of the sensor.
-
-            // Magnetometer
-            virtual int readMagneticField(int16_t &x, int16_t &y, int16_t &z); // Results are in uT (micro Tesla).
-            virtual int magneticFieldAvailable();                        // Number of samples in the FIFO.
-            virtual float magneticFieldSampleRate();                     // Sampling rate of the sensor.
-
-            // float getTemperature();
-
-
-            void setWristWearWakeup();
-            int getGesture();
-            std::string getGestureName(uint8_t gesture);
-
-
-            void enableStepCounter();
-            uint32_t getSteps();
-            bool bmm150isEnabled();
-    };
-
-}
+}  // namespace BMI270
